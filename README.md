@@ -103,7 +103,7 @@ A DesTech Studio atua com responsabilidade, respeito e compromisso ético em cad
 
 ## 📫 Contato
 
-- 🌐 [Site oficial](https://destechstudio.com) *(coloque seu domínio quando tiver)*
+- 🌐 [Site oficial](https://destechstudio.com) 
 - 📧 contato@destechstudio.com
 - 📱 WhatsApp: [Clique aqui para conversar](https://api.whatsapp.com/send?phone=5527997623605&text=Olá!%20Gostaria%20de%20conversar%20com%20a%20DesTech%20Studio)
 
