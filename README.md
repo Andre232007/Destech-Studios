@@ -83,11 +83,11 @@ A DesTech Studio atua com responsabilidade, respeito e compromisso ético em cad
 
 | Projeto | Descrição | Tecnologias |
 |--------|-----------|-------------|
-| 🔥 **Landing Page Interativa** | Site de apresentação com animações modernas | HTML, CSS, JS, GSAP |
-| 📊 **Dashboard de Vendas** | Interface com gráficos e painéis de controle | React, Chart.js, Node.js |
-| 🎓 **Plataforma de Cursos** | Sistema completo com login e progresso | React, Firebase |
-| 📝 **Blog com CMS Headless** | SEO otimizado e integrado ao Sanity CMS | Next.js, Sanity |
-| 💼 **Gerador de Portfólios** | Painel onde usuários criam seus portfólios | React, Firebase, Tailwind |
+| 🔥 **FROST FREZZ** | Site de açai super moderno
+| 📊 **FP SELECTION** | LOja de hiper-cars com interface unica
+| 🎓 **Portifolio** | Portifolio com a cara do nosso cliente
+
+
 
 ---
 
