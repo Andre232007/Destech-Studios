@@ -36,13 +36,12 @@ img {
 }
 
 .header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-     flex-wrap: wrap; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 20px;
+  position: relative;
 }
 
 .brand-identity {
@@ -51,6 +50,7 @@ img {
     align-items: center;
     text-decoration: none;
     transition: color 0.3s ease;
+    white-space: nowrap;
 }
 
 .brand-identity img {
@@ -115,20 +115,22 @@ img {
     }
 
     /* Ensuring the mobile navigation is full width and easy to read */
-    .main-nav {
-        width: 100%;
-        text-align: center;
-    }
-    
+   .main-nav {
+  width: 100%;
+  text-align: right; /* alinha os links à direita */
+  padding-right: 20px;
+}
     .main-nav .nav-menu {
         flex-direction: column;
         gap: 10px;
-        align-items: center; /* Center menu items for better mobile view */
+        align-items: flex-end; /* Center menu items for better mobile view */
     }
 
     .menu-toggle {
         display: block; /* Make sure the menu toggle button is visible */
         order: -1; /* Move the toggle button above the brand identity */
+          align-self: flex-start;
+ 
     }
 }
 @media (max-width: 480px) {
@@ -580,6 +582,22 @@ h1, h2, h3 {
 .hero-content {
     max-width: 600px;
 }
+.hero-image {
+  margin: 30px auto 0; /* topo 30px, laterais automáticas */
+  text-align: center;
+}
+
+.hero-image img {
+  display: block;
+  margin: 0 auto;
+}
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
 
 .hero h1 {
     font-size: 2.5rem;
@@ -831,3 +849,4 @@ body.light-mode #home img#notebook-2-white {
     opacity: 1;
   }
 }
+
