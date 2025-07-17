@@ -71,7 +71,7 @@ A DesTech Studio atua com responsabilidade, respeito e compromisso ético em cad
 | Roxo Neon    | `#6C63FF` | Destaques, botões      |
 | Verde Aqua   | `#3FE0D0` | Secundário, ícones     |
 | Cinza Claro  | `#EAEAEA` | Texto secundário       |
-| Branco       | `#FFFFFF` | Contraste e espaços    |
+| Branco       | `# ` | Contraste e espaços    |
 
 **Tipografia:**
 - Títulos: [Orbitron](https://fonts.google.com/specimen/Orbitron) ou [Montserrat](https://fonts.google.com/specimen/Montserrat)
