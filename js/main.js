@@ -59,12 +59,3 @@ const templateID = 'template_SEU_ID';
        });  
    }
 });
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js')
-    .then(function(reg) {
-      console.log('✅ Service Worker registrado com sucesso:', reg);
-    })
-    .catch(function(err) {
-      console.log('❌ Erro ao registrar Service Worker:', err);
-    });
-}

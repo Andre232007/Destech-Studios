@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DesTech Studio | Experiências Digitais</title>
-<link rel="manifest" href="manifest.json">
+
 <meta name="theme-color" content="#0ff">
 
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter&display=swap" rel="stylesheet">
@@ -323,19 +323,7 @@
     </div>
   </section>
  
-    <div class="install-app-section" data-aos="fade-up" data-aos-delay="500">
-                    <h2>Tenha nosso app!</h2>
-                    <!-- Botão de Instalação do PWA (inicialmente oculto) -->
-                 
-                    <!-- Link de Download Direto do APK (fallback) -->
-                    <a id="downloadApkLink" href="./DesTech-unsigned.apk" download="DesTech-unsigned.apk">
-                        Baixar APK para Android
-                    </a>
-                    <p>
-                        (Use esta opção se o botão "Instalar Aplicativo" não aparecer ou se preferir o APK.)
-                    </p>
-                </div>
-                
+    
 
   <footer class="footer">
     <div class="container">
@@ -355,79 +343,7 @@
     <script src="js/main.js"></script>
 
     <script>
-        // Registro do Service Worker
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js')
-                .then(function(reg) {
-                    console.log('✅ Service Worker registrado com sucesso:', reg);
-                })
-                .catch(function(err) {
-                    console.log('❌ Erro ao registrar Service Worker:', err);
-                });
-        }
-
-        // Lógica para o botão de instalação do PWA e download do APK
-        let deferredPrompt; // Variável para armazenar o evento beforeinstallprompt
-        const installButton = document.getElementById('installButton');
-        const downloadApkLink = document.getElementById('downloadApkLink');
-
-        // Adiciona um listener para o evento 'beforeinstallprompt'
-        // Este evento é disparado quando o navegador detecta que o PWA é instalável.
-        window.addEventListener('beforeinstallprompt', (e) => {
-            // Previne que o prompt padrão do navegador apareça imediatamente
-            e.preventDefault();
-            // Armazena o evento para que possa ser disparado mais tarde
-            deferredPrompt = e;
-            // Mostra o botão de instalação do PWA
-            installButton.classList.remove('hidden');
-            console.log('Evento beforeinstallprompt disparado. Botão de instalação visível.');
-        });
-
-        // Adiciona um listener de clique ao botão de instalação do PWA
-        installButton.addEventListener('click', async () => {
-            // Oculta o botão após o clique para evitar cliques múltiplos
-            installButton.classList.add('hidden');
-
-            if (deferredPrompt) {
-                // Mostra o prompt de instalação do PWA
-                deferredPrompt.prompt();
-                // Espera pela resposta do usuário ao prompt
-                const { outcome } = await deferredPrompt.userChoice;
-                console.log(`Escolha do usuário para instalação: ${outcome}`);
-
-                // Limpa o evento armazenado, pois ele só pode ser usado uma vez
-                deferredPrompt = null;
-
-                // Se o usuário aceitou, você pode adicionar lógica aqui (ex: mostrar uma mensagem de sucesso)
-                if (outcome === 'accepted') {
-                    console.log('PWA instalado com sucesso!');
-                    // Opcional: Remover o botão ou mostrar uma mensagem de "Instalado"
-                } else {
-                    console.log('Instalação do PWA cancelada.');
-                    // Opcional: Mostrar o botão novamente se o usuário cancelou
-                    // installButton.classList.remove('hidden');
-                }
-            } else {
-                console.log('Evento beforeinstallprompt não disponível ou já utilizado.');
-                // Isso pode acontecer se o usuário já instalou o PWA ou se o navegador não o suporta
-                // Neste caso, o link de download do APK ainda estará visível.
-            }
-        });
-
-        // Opcional: Lógica para verificar se o PWA já está instalado
-        // Este evento é disparado quando o PWA é instalado com sucesso
-        window.addEventListener('appinstalled', () => {
-            console.log('PWA foi instalado!');
-            installButton.classList.add('hidden'); // Esconde o botão se o app for instalado
-            // Você pode redirecionar o usuário ou mostrar uma mensagem de sucesso aqui
-        });
-
-        // Opcional: Lógica para verificar se o PWA está sendo executado no modo standalone
-        // (ou seja, como um aplicativo instalado)
-        if (window.matchMedia('(display-mode: standalone)').matches) {
-            console.log('PWA está rodando no modo standalone.');
-            installButton.classList.add('hidden'); // Esconde o botão se já estiver no modo app
-        }
+       
     </script>
 </body>
 </html>
