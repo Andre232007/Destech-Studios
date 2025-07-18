@@ -14,6 +14,98 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <link rel="icon" href="favicon.ico" />
+  <style>
+     /* Estilos para a seção "Tenha nosso app!" */
+        .install-app-section {
+            margin-top: 2rem; /* mt-8 */
+            padding: 1.5rem; /* p-6 */
+            background-color: rgba(255, 255, 255, 0.5); /* bg-gray-700 com opacidade */
+            border-radius: 0.5rem; /* rounded-lg */
+           text-align: center; /* text-center */
+            margin-left: auto; /* mx-auto */
+            margin-right: auto; /* mx-auto */
+            max-width: 24rem; /* max-w-sm */
+        }
+
+        /* Responsividade para telas maiores (equivalente a sm:max-w-md) */
+        @media (min-width: 640px) { /* Tailwind's 'sm' breakpoint */
+            .install-app-section {
+                max-width: 28rem; /* sm:max-w-md */
+            }
+        }
+
+        .install-app-section h2 {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            margin-bottom: 0.75rem; /* mb-3 */
+            color: #6C63FF; /* text-emerald-400 */
+        }
+
+        .install-app-section button,
+        .install-app-section a {
+            display: inline-block; /* inline-block */
+            font-weight: 600; /* font-semibold */
+            padding: 0.75rem 1.5rem; /* py-3 px-6 */
+            border-radius: 9999px; /* rounded-full */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg */
+            transition: all 0.3s ease-in-out; /* transition duration-300 ease-in-out */
+            transform: scale(1); /* transform */
+            width: 100%; /* w-full */
+            text-decoration: none; /* Remover sublinhado do link */
+            cursor: pointer; /* Cursor de ponteiro */
+        }
+
+        .install-app-section button:hover,
+        .install-app-section a:hover {
+            transform: scale(1.05); /* hover:scale-105 */
+        }
+
+        .install-app-section button:focus,
+        .install-app-section a:focus {
+            outline: none; /* focus:outline-none */
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5); /* focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 */
+        }
+
+        /* Estilos específicos para o botão de instalação (PWA) */
+        .install-app-section #installButton {
+            background-color: #6C63FF; /* bg-emerald-600 */
+            color: white; /* text-white */
+            margin-bottom: 0.75rem; /* mb-3 */
+        }
+
+        .install-app-section #installButton:hover {
+            background-color: #3FE0D0; /* hover:bg-emerald-700 */
+        }
+
+        .install-app-section #installButton:focus {
+            box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.75); /* focus:ring-2 focus:ring-emerald-500 focus:ring-opacity-75 */
+        }
+
+        /* Estilos específicos para o link de download (APK) */
+        .install-app-section #downloadApkLink {
+            background-color: #3FE0D0; /* bg-blue-600 */
+            color: white; /* text-white */
+        }
+
+        .install-app-section #downloadApkLink:hover {
+            background-color: #6C63FF; /* hover:bg-blue-700 */
+        }
+
+        .install-app-section #downloadApkLink:focus {
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.75); /* focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 */
+        }
+
+        .install-app-section p {
+            font-size: 0.875rem; /* text-sm */
+            color: #9ca3af; /* text-gray-400 */
+            margin-top: 0.5rem; /* mt-2 */
+        }
+
+        /* Classe para esconder o botão, usada pelo JavaScript */
+        .hidden {
+            display: none;
+        }
+  </style>
 
 </head>
 <body>
@@ -51,6 +143,7 @@
           <a href="#projetos" class="btn primary">Ver Projetos</a>
           <a href="#contato" class="btn secondary">Fale Conosco</a>
         </div>
+        
       </div>
       <div class="hero-image" data-aos="zoom-in" data-aos-delay="600">
         <img src="images/logo2.png" alt="Logo DesTech Studio - Design Moderno" />
@@ -143,7 +236,9 @@
             
             
         </div>
+        
     </div>
+    
 </section>
 
     <section id="home">
@@ -200,10 +295,7 @@
       </div>
     </div>
   </section>
-  <button id="installBtn" style="position: fixed; bottom: 20px; right: 20px; padding: 12px 20px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 8px; cursor: pointer; z-index: 1000;">
-  Instalar App
-</button>
-
+  
   
 
   <section id="contato" class="section contact">
@@ -230,6 +322,20 @@
       </div>
     </div>
   </section>
+ 
+    <div class="install-app-section" data-aos="fade-up" data-aos-delay="500">
+                    <h2>Tenha nosso app!</h2>
+                    <!-- Botão de Instalação do PWA (inicialmente oculto) -->
+                 
+                    <!-- Link de Download Direto do APK (fallback) -->
+                    <a id="downloadApkLink" href="./DesTech-unsigned.apk" download="DesTech-unsigned.apk">
+                        Baixar APK para Android
+                    </a>
+                    <p>
+                        (Use esta opção se o botão "Instalar Aplicativo" não aparecer ou se preferir o APK.)
+                    </p>
+                </div>
+                
 
   <footer class="footer">
     <div class="container">
@@ -244,58 +350,84 @@
       <p class="copyright">© 2025 DesTech Studio – Todos os direitos reservados.</p>
     </div>
   </footer>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+    <script src="js/main.js"></script>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
-  <script src="js/main.js"></script>
-  <script>
-  if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js')
-    .then(function(reg) {
-      console.log('✅ Service Worker registrado com sucesso:', reg);
-    })
-    .catch(function(err) {
-      console.log('❌ Erro ao registrar Service Worker:', err);
-    });
-}
+    <script>
+        // Registro do Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(function(reg) {
+                    console.log('✅ Service Worker registrado com sucesso:', reg);
+                })
+                .catch(function(err) {
+                    console.log('❌ Erro ao registrar Service Worker:', err);
+                });
+        }
 
-</script>
-<script>
-  let deferredPrompt;
-  const installBtn = document.getElementById('installBtn');
+        // Lógica para o botão de instalação do PWA e download do APK
+        let deferredPrompt; // Variável para armazenar o evento beforeinstallprompt
+        const installButton = document.getElementById('installButton');
+        const downloadApkLink = document.getElementById('downloadApkLink');
 
-  // Oculta o botão inicialmente
-  installBtn.style.display = 'none';
+        // Adiciona um listener para o evento 'beforeinstallprompt'
+        // Este evento é disparado quando o navegador detecta que o PWA é instalável.
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Previne que o prompt padrão do navegador apareça imediatamente
+            e.preventDefault();
+            // Armazena o evento para que possa ser disparado mais tarde
+            deferredPrompt = e;
+            // Mostra o botão de instalação do PWA
+            installButton.classList.remove('hidden');
+            console.log('Evento beforeinstallprompt disparado. Botão de instalação visível.');
+        });
 
-  // Escuta o evento que o Chrome dispara quando detecta um PWA instalável
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault(); // Evita o prompt automático
-    deferredPrompt = e; // Salva o evento
-    installBtn.style.display = 'block'; // Mostra o botão
-  });
+        // Adiciona um listener de clique ao botão de instalação do PWA
+        installButton.addEventListener('click', async () => {
+            // Oculta o botão após o clique para evitar cliques múltiplos
+            installButton.classList.add('hidden');
 
-  // Ação do botão
-  installBtn.addEventListener('click', async () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt(); // Mostra o prompt de instalação
-      const { outcome } = await deferredPrompt.userChoice;
-      if (outcome === 'accepted') {
-        console.log('Usuário aceitou a instalação');
-        installBtn.style.display = 'none'; // Esconde o botão
-      } else {
-        console.log('Usuário recusou a instalação');
-      }
-      deferredPrompt = null;
-    }
-  });
+            if (deferredPrompt) {
+                // Mostra o prompt de instalação do PWA
+                deferredPrompt.prompt();
+                // Espera pela resposta do usuário ao prompt
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`Escolha do usuário para instalação: ${outcome}`);
 
-  // Se já estiver instalado, esconde o botão
-  window.addEventListener('appinstalled', () => {
-    console.log('App instalado');
-    installBtn.style.display = 'none';
-  });
-</script>
+                // Limpa o evento armazenado, pois ele só pode ser usado uma vez
+                deferredPrompt = null;
 
+                // Se o usuário aceitou, você pode adicionar lógica aqui (ex: mostrar uma mensagem de sucesso)
+                if (outcome === 'accepted') {
+                    console.log('PWA instalado com sucesso!');
+                    // Opcional: Remover o botão ou mostrar uma mensagem de "Instalado"
+                } else {
+                    console.log('Instalação do PWA cancelada.');
+                    // Opcional: Mostrar o botão novamente se o usuário cancelou
+                    // installButton.classList.remove('hidden');
+                }
+            } else {
+                console.log('Evento beforeinstallprompt não disponível ou já utilizado.');
+                // Isso pode acontecer se o usuário já instalou o PWA ou se o navegador não o suporta
+                // Neste caso, o link de download do APK ainda estará visível.
+            }
+        });
 
+        // Opcional: Lógica para verificar se o PWA já está instalado
+        // Este evento é disparado quando o PWA é instalado com sucesso
+        window.addEventListener('appinstalled', () => {
+            console.log('PWA foi instalado!');
+            installButton.classList.add('hidden'); // Esconde o botão se o app for instalado
+            // Você pode redirecionar o usuário ou mostrar uma mensagem de sucesso aqui
+        });
+
+        // Opcional: Lógica para verificar se o PWA está sendo executado no modo standalone
+        // (ou seja, como um aplicativo instalado)
+        if (window.matchMedia('(display-mode: standalone)').matches) {
+            console.log('PWA está rodando no modo standalone.');
+            installButton.classList.add('hidden'); // Esconde o botão se já estiver no modo app
+        }
+    </script>
 </body>
 </html>
