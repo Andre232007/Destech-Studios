@@ -200,6 +200,10 @@
       </div>
     </div>
   </section>
+  <button id="installBtn" style="position: fixed; bottom: 20px; right: 20px; padding: 12px 20px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 8px; cursor: pointer; z-index: 1000;">
+  Instalar App
+</button>
+
   
 
   <section id="contato" class="section contact">
@@ -256,6 +260,42 @@
 }
 
 </script>
+<script>
+  let deferredPrompt;
+  const installBtn = document.getElementById('installBtn');
+
+  // Oculta o botão inicialmente
+  installBtn.style.display = 'none';
+
+  // Escuta o evento que o Chrome dispara quando detecta um PWA instalável
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault(); // Evita o prompt automático
+    deferredPrompt = e; // Salva o evento
+    installBtn.style.display = 'block'; // Mostra o botão
+  });
+
+  // Ação do botão
+  installBtn.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt(); // Mostra o prompt de instalação
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        console.log('Usuário aceitou a instalação');
+        installBtn.style.display = 'none'; // Esconde o botão
+      } else {
+        console.log('Usuário recusou a instalação');
+      }
+      deferredPrompt = null;
+    }
+  });
+
+  // Se já estiver instalado, esconde o botão
+  window.addEventListener('appinstalled', () => {
+    console.log('App instalado');
+    installBtn.style.display = 'none';
+  });
+</script>
+
 
 </body>
 </html>
