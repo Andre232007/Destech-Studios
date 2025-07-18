@@ -31,13 +31,16 @@ document.addEventListener('DOMContentLoaded', function() {
        form.addEventListener('submit', function(event) {
            event.preventDefault();
 
-           const nome = document.querySelector('input[@name="nome"]').value;
-           const email = document.querySelector('input[@name="email"]').value;
-           const assunto = document.querySelector('input[@name="assunto"]').value;
-           const mensagem = document.querySelector('textarea[@name="mensagem"]').value;
+           const nome = document.querySelector('input[name="nome"]').value;
+const email = document.querySelector('input[name="email"]').value;
+const assunto = document.querySelector('input[name="assunto"]').value;
+const mensagem = document.querySelector('textarea[name="mensagem"]').value;
 
-           const serviceID = 'service_YOUR_SERVICE_ID'; // Substitua
-           const templateID = 'template_YOUR_TEMPLATE_ID'; // Substitua
+
+           emailjs.init("SEU_USER_ID");
+const serviceID = 'service_SEU_ID';
+const templateID = 'template_SEU_ID';
+
 
            const templateParams = {
                from_name: nome,
@@ -53,6 +56,15 @@ document.addEventListener('DOMContentLoaded', function() {
                }, function(error) {
                    alert('Falha ao enviar a mensagem...', error);
                });
-       });
+       });  
    }
 });
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js')
+    .then(function(reg) {
+      console.log('✅ Service Worker registrado com sucesso:', reg);
+    })
+    .catch(function(err) {
+      console.log('❌ Erro ao registrar Service Worker:', err);
+    });
+}
